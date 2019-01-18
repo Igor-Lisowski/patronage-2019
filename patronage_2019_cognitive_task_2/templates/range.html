@@ -1,0 +1,9 @@
+<div class="container">
+	{% autoescape off %}{{ links }}{% endautoescape %}
+	<form method="post">
+		{% csrf_token %}
+		{{form.as_p}}
+		<button type="submit">Submit</button>
+	</form>
+	{{ text }}
+</div>

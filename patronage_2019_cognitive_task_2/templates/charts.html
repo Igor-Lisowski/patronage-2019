@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+<script>
+{% block jquery %}
+var endpoint = 'api/data/'
+var defaultData = []
+var labels = []
+var colors = []
+
+$.ajax({
+    method: "GET",
+    url: endpoint,
+    success: function(data) {
+        labels = data.labels
+        defaultData = data.default
+        colors = data.colors
+        setChart()
+    },
+    error: function(error_data) {
+        console.log("error")
+        console.log(error_data)
+    }
+})
+
+function setChart() {
+    var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'salary brutto',
+                    data: defaultData,
+                    backgroundColor: colors
+                }]
+            }
+        })
+    var ctx2 = document.getElementById("myChart2").getContext('2d');
+        var myChart = new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'worked years / predicted salary brutto',
+                    data: defaultData,
+                    backgroundColor: colors
+                }]
+            }
+        })
+}
+
+{% endblock %}
+</script>
+
+{% block content %}
+{% autoescape off %}{{ links }}{% endautoescape %}
+<div class='row'>
+    <div class='col-sm-12' url-endpoint='{% url "api-data" %}'>
+        <h1>Chart data</h1>
+            <canvas id="myChart" width="400" height="400"></canvas>
+            <canvas id="myChart2" width="400" height=" 400"></canvas>
+    </div>
+</div>
+
+{% endblock content %}
