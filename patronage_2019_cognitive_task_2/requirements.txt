@@ -60,7 +60,7 @@ pyserial==3.4
 python-dateutil==2.7.5
 pytz==2018.7
 pyxdg==0.25
-PyYAML==3.12
+PyYAML==5.4
 regex==2017.12.12
 repoze.lru==0.7
 requests==2.19.1
