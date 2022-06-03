@@ -3,7 +3,7 @@ arandr==0.1.9
 asn1crypto==0.24.0
 backports.functools-lru-cache==1.5
 beautifulsoup4==4.6.0
-bottle==0.12.13
+bottle==0.12.20
 certifi==2018.10.15
 chardet==3.0.4
 CherryPy==8.9.1
