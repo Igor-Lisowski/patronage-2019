@@ -42,7 +42,7 @@ mechanize==0.2.5
 msgpack==0.5.6
 mutagen==1.38
 netifaces==0.10.4
-numpy==1.15.4
+numpy==1.22.0
 olefile==0.45.1
 pandas==0.23.4
 pbr==3.1.1
